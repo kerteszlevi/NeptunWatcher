@@ -30,18 +30,14 @@ const callback = function(mutationsList, observer) {
             if (availableSpaces < totalSpaces && vizsgadatum == date) {
                 // Play the sound
                 audio.play();
-
-                // Replace this with a call to your server-side script or third-party service
                 console.log('Felszabadult egy hely:', vizsgatargy);
             }
         }
     });
 };
 
-// Call the callback function on page load to check the table immediately
 callback();
 
 const observer = new MutationObserver(callback);
 
-// Start observing each row
 targetRows.forEach(row => observer.observe(row, config));
