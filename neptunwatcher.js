@@ -8,11 +8,11 @@
 
 //módosítsd a vizsgatargy és vizsgadatum változókat a kívánt vizsgaalkalomra
 //ha látszik a konzolban a sajtmalac szó, akkor működik
-
+//páro
 console.log('sajtmalac')
-const vizsgatargy = 'Mobil- és webes szoftverek'; // vizsgatárgy neve (másolva a neptunból)
-const vizsgadatum = '2023. 12. 20. 10:00:00'; // vizsgaalkalom időpontja (másolva a neptunból)
-const reloadtime = 15000; // újratöltési idő ms-ben
+const vizsgatargy = 'Mobil kommunikációs hálózatok'; // vizsgatárgy neve (neptunból másolva)
+const vizsgadatum = '2024. 01. 12. 10:00:00'; //vizsgaalkalom időpontja (neptunból másolva)
+const reloadtime = 10000; //újratöltés ennyi ms-onként
 
 
 // a vizsgaalkalmak listája
@@ -47,7 +47,7 @@ const callback = function(mutationsList, observer) {
     });
 };
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 
