@@ -9,7 +9,7 @@
 //módosítsd a vizsgatargy és vizsgadatum változókat a kívánt vizsgaalkalomra
 //ha látszik a konzolban a sajtmalac szó, akkor működik
 //páro
-console.log('sajtmalac')
+console.log('**NeptunWatcher**')
 const vizsgatargy = 'Mobil kommunikációs hálózatok'; // vizsgatárgy neve (neptunból másolva)
 const vizsgadatum = '2024. 01. 12. 10:00:00'; //vizsgaalkalom időpontja (neptunból másolva)
 const reloadtime = 10000; //újratöltés ennyi ms-onként
@@ -50,9 +50,10 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
+const currentpage = document.querySelectorAll('h1#upMenuCaption_menucaption')[0].innerText;
 //újratöltés után azonnal meghívjuk, mivel a neptun nem frissít dinamikusan
-callback();
+if(currentpage == "Vizsgajelentkezés"){
+    callback();
 console.log('Az oldal ',reloadtime/1000, ' másodperc múlva újratölt.');
 sleep(reloadtime).then(() => { location.reload(); });
 
@@ -60,3 +61,6 @@ sleep(reloadtime).then(() => { location.reload(); });
 const observer = new MutationObserver(callback);
 
 targetRows.forEach(row => observer.observe(row, config));
+}else{
+    console.log("Nem a vizsgajelentkezés oldalon vagy.")
+}
